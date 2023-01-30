@@ -7,8 +7,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:techtails/main.dart';
 import 'package:techtails/src/feature/profile/application/profile_widget.dart';
 
 void main() {
