@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:techtails/src/feature/profile/application/profile_widget.dart';
 
 // class CommonPage extends StatefulWidget {
 //   final widget2;
@@ -18,11 +19,13 @@ class CommonPage extends StatefulWidget {
 }
 
 class _CommonPageState extends State<CommonPage> {
-  bool isHomeclicked = false;
-  bool isCategoryclicked = false;
-  bool isNotificationclicked = false;
   bool isAccountlicked = false;
   bool isCartlicked = false;
+  bool isCategoryclicked = false;
+  bool isHomeclicked = false;
+  bool isNotificationclicked = false;
+  Widget? top;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,6 +149,7 @@ class _CommonPageState extends State<CommonPage> {
                                 isNotificationclicked = false;
                                 isHomeclicked = false;
                                 isCategoryclicked = false;
+                                top = ProfilePage();
                               });
                             },
                             child: Column(
@@ -224,6 +228,17 @@ class _CommonPageState extends State<CommonPage> {
             ],
           ),
         ),
+        Padding(
+          padding: EdgeInsets.only(top: 100, bottom: 58),
+          child: Container(
+            decoration: BoxDecoration(
+                // color: Colors.red,
+                ),
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+          ),
+        ),
+        top ?? Container(),
         widget.child ?? Container()
       ]),
     );
@@ -233,11 +248,11 @@ class _CommonPageState extends State<CommonPage> {
 class BottomNavBarFb2 extends StatelessWidget {
   const BottomNavBarFb2({Key? key}) : super(key: key);
 
-  final primaryColor = const Color(0xff4338CA);
-  final secondaryColor = const Color(0xff6D28D9);
   final accentColor = const Color(0xffffffff);
   final backgroundColor = const Color(0xffffffff);
   final errorColor = const Color(0xffEF4444);
+  final primaryColor = const Color(0xff4338CA);
+  final secondaryColor = const Color(0xff6D28D9);
 
   @override
   Widget build(BuildContext context) {
@@ -287,12 +302,12 @@ class IconBottomBar extends StatelessWidget {
       required this.selected,
       required this.onPressed})
       : super(key: key);
-  final String text;
-  final IconData icon;
-  final bool selected;
-  final Function() onPressed;
 
+  final IconData icon;
+  final Function() onPressed;
   final primaryColor = const Color(0xff4338CA);
+  final bool selected;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
